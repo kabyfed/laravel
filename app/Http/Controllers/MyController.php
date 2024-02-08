@@ -8,21 +8,34 @@ class MyController extends Controller
 {
     public function method($title, $content)
     {
-        $links= [
+        $users = [
             [
-                'text' => 'text1',
-                'href' => 'href1',
+                'name' => 'user1',
+                'surname' => 'surname1',
+                'banned' => true,
             ],
             [
-                'text' => 'text2',
-                'href' => 'href2',
+                'name' => 'user2',
+                'surname' => 'surname2',
+                'banned' => false,
             ],
             [
-                'text' => 'text3',
-                'href' => 'href3',
-            ]
+                'name' => 'user3',
+                'surname' => 'surname3',
+                'banned' => true,
+            ],
+            [
+                'name' => 'user4',
+                'surname' => 'surname4',
+                'banned' => false,
+            ],
+            [
+                'name' => 'user5',
+                'surname' => 'surname5',
+                'banned' => false,
+            ],
         ];
-        return view('method', ['title' => $title, 'content' => $content, 'links' => $links]);
+        return view('method', ['title' => $title, 'content' => $content, 'users' => $users]);
     }
 
 
