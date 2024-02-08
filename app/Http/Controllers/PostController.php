@@ -27,7 +27,7 @@ class PostController extends Controller
                 "date" => "Дата создания поста"
             ]
         ];
-        return $posts;
+        return view('post.test', ['var1' => '1', 'var2' => '2']);
     }
 
     public function show($id){
@@ -69,4 +69,6 @@ class PostController extends Controller
             'deleted' => true
         ];
     }
+
+
 }
