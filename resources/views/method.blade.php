@@ -9,5 +9,9 @@
 <body>
     <h1> {{ $title }} </h1>
     <p> {{ $content }} </p>
+
+    @foreach ($links as $link)
+        <a href="{{$link['href']}}"> {{$link['text']}} </a> <br>
+    @endforeach
 </body>
 </html>

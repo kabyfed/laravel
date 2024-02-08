@@ -6,25 +6,26 @@ use Illuminate\Http\Request;
 
 class MyController extends Controller
 {
-    public function method1()
+    public function method($title, $content)
     {
-        $title = '1';
-        $content = 'content1';
-        return view('method', ['title' => $title, 'content' => $content]);
+        $links= [
+            [
+                'text' => 'text1',
+                'href' => 'href1',
+            ],
+            [
+                'text' => 'text2',
+                'href' => 'href2',
+            ],
+            [
+                'text' => 'text3',
+                'href' => 'href3',
+            ]
+        ];
+        return view('method', ['title' => $title, 'content' => $content, 'links' => $links]);
     }
 
-    public function method2()
-    {
-        $title = '2';
-        $content = 'content2';
-        return view('method', ['title' => $title, 'content' => $content]);
-    }
-    public function method3()
-    {
-        $title = '3';
-        $content = 'content3';
-        return view('method', ['title' => $title, 'content' => $content]);
-    }
+
 }
 
 

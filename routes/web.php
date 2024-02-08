@@ -56,6 +56,8 @@ Route::get('names/{name}',function($name){
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
 Route::get('/page/all', [PageController::class, 'showAll']);
 
-Route::get('/method1', [MyController::class, 'method1']);
-Route::get('/method2', [MyController::class, 'method2']);
-Route::get('/method3', [MyController::class, 'method3']);
+// Route::get('/method1', [MyController::class, 'method1']);
+// Route::get('/method2', [MyController::class, 'method2']);
+// Route::get('/method3', [MyController::class, 'method3']);
+
+Route::get('/method/{title}/{content}', [MyController::class, 'method']);
