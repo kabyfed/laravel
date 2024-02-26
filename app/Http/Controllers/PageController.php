@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function showOne($id){
+    public function showOne($id)
+    {
         $pages = [
             1 => 'страница 1',
             2 => 'страница 2',
@@ -14,15 +15,16 @@ class PageController extends Controller
             4 => 'страница 4',
             5 => 'страница 5',
         ];
-        if (array_key_exists($id,$pages)) {
+        if (array_key_exists($id, $pages)) {
             return $pages[$id];
-        } else{
+        } else {
             return 'Страницы с таким номером нет ';
         }
         return "Передан параметр $id";
     }
 
-    public function showAll(){
+    public function showAll()
+    {
         return "showAll";
     }
 }

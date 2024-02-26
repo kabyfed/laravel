@@ -1,32 +1,19 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-Route::get('/',function(){
-    return view('welcome');
-});
-
 //Задание 9.1
-Route::get('/user/{id?}', function($id = 0){
+Route::get('/user/{id?}', function ($id = 0) {
     return "Передан параметр $id";
 });
 
 //Задание 9.2
-Route::get('/{year}/{month}/{day}', function($year, $month, $day){
+Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
     $date = $year . '-' . $month . '-' . $day;
-    echo "Дата: " . $date.'<br>';
+    echo "Дата: " . $date . '<br>';
 
     $days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
     return "День недели: " . $days[date("w", strtotime($date))];
@@ -37,17 +24,17 @@ Route::get('/{year}/{month}/{day}', function($year, $month, $day){
 ]);
 
 //Задание 9.3
-Route::get('names/{name}',function($name){
+Route::get('names/{name}', function ($name) {
     $users = [
         'user1' => 'city1',
         'user2' => 'city2',
         'user3' => 'city3',
         'user4' => 'city4',
         'user5' => 'city5'
-       ];
-    if (array_key_exists($name,$users)) {
+    ];
+    if (array_key_exists($name, $users)) {
         return $users[$name];
-    } else{
+    } else {
         return 'Вы ввели неверное имя';
     }
 });
@@ -55,9 +42,15 @@ Route::get('names/{name}',function($name){
 //Задание 9.4
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
 Route::get('/page/all', [PageController::class, 'showAll']);
-
-// Route::get('/method1', [MyController::class, 'method1']);
-// Route::get('/method2', [MyController::class, 'method2']);
-// Route::get('/method3', [MyController::class, 'method3']);
-
 Route::get('/method/{title}/{content}', [MyController::class, 'method']);
+
+//Задание 13.1
+Route::get('/task13/2', [EmployeeController::class, 'show2']);
+Route::get('/task13/3', [EmployeeController::class, 'show3']);
+Route::get('/task13/4', [EmployeeController::class, 'show4']);
+Route::get('/task13/5', [EmployeeController::class, 'show5']);
+Route::get('/task13/6', [EmployeeController::class, 'show6']);
+Route::get('/task13/7', [EmployeeController::class, 'show7']);
+Route::get('/task13/8', [EmployeeController::class, 'show8']);
+Route::get('/task13/9', [EmployeeController::class, 'show9']);
+Route::get('/task13/10', [EmployeeController::class, 'show10']);
