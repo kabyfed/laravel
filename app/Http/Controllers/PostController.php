@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $posts = [
             [
                 'id' => 1,
@@ -30,7 +31,8 @@ class PostController extends Controller
         return view('post.test', ['var1' => '1', 'var2' => '2']);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $posts = [
             [
                 'id' => 1,
@@ -51,24 +53,25 @@ class PostController extends Controller
                 "date" => "Дата создания поста"
             ]
         ];
-        return $posts[$id-1];
+        return $posts[$id - 1];
     }
 
-    public function store(Request $request){
-        return($request);
+    public function store(Request $request)
+    {
+        return ($request);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         return [
             'update' => true
         ];
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         return [
             'deleted' => true
         ];
     }
-
-
 }

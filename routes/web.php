@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Задание 9.1
@@ -54,3 +55,9 @@ Route::get('/task13/7', [EmployeeController::class, 'show7']);
 Route::get('/task13/8', [EmployeeController::class, 'show8']);
 Route::get('/task13/9', [EmployeeController::class, 'show9']);
 Route::get('/task13/10', [EmployeeController::class, 'show10']);
+
+//Задание 13.2
+Route::get('/task13_2/2', [UserController::class, 'addOneUser']);
+Route::get('/task13_2/3', [UserController::class, 'addThreeUsers']);
+Route::get('/task13_2/4', [UserController::class, 'changeUserInfo']);
+Route::get('/task13_2/5', [UserController::class, 'deleteUser']);
