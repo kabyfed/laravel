@@ -3,75 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+
+use function Laravel\Prompts\table;
 
 class PostController extends Controller
 {
-    public function index()
+    public function getAll($order = 'date')
     {
-        $posts = [
-            [
-                'id' => 1,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ],
-            [
-                'id' => 2,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ],
-            [
-                'id' => 3,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ]
-        ];
-        return view('post.test', ['var1' => '1', 'var2' => '2']);
+        if ($order == 'date') {
+            $order = 'created_at';
+        }
+        // $posts =  Post::all();
+        // $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy($order, 'desc')->get();
+        return view('index', ['posts' => $posts]);
     }
-
-    public function show($id)
+    public function getOne($id)
     {
-        $posts = [
-            [
-                'id' => 1,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ],
-            [
-                'id' => 2,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ],
-            [
-                'id' => 3,
-                "name" => "Имя поста",
-                "content" => "Содержимое поста",
-                "date" => "Дата создания поста"
-            ]
-        ];
-        return $posts[$id - 1];
-    }
-
-    public function store(Request $request)
-    {
-        return ($request);
-    }
-
-    public function update(Request $request, $id)
-    {
-        return [
-            'update' => true
-        ];
-    }
-
-    public function destroy($id)
-    {
-        return [
-            'deleted' => true
-        ];
+        $post = Post::find($id);
+        if (!$post) {
+            return view('404');
+        }
+        return view('show', ['post' => $post]);
     }
 }
