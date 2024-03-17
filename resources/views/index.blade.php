@@ -20,6 +20,8 @@
                 <td>{{ $post->id }}</td>
                 <td><a href="{{ route('show', ['id' => $post->id]) }}">{{ $post->title }}</a></td>
                 <td>{{ $post->desc }}</td>
+                <td><a href="{{ route('edit', ['id' => $post->id]) }}">{{ $post->id }} Редактировать</a></td>
+                <td><a href="{{ route('del', ['id' => $post->id]) }}">{{ $post->id }} Удалить</a></td>
             </tr>
         @endforeach
     </table>

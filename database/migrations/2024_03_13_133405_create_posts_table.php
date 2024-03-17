@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('localitys', function (Blueprint $table) {
-            $table->string('name_of_locality')->unique();
-            $table->primary('name_of_locality');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('desc');
+            $table->tinyText('text');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('localitys');
+        Schema::dropIfExists('posts');
     }
 };
